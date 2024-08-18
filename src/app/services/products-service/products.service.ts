@@ -28,7 +28,7 @@ export class ProductsService {
     order: string
   ): Observable<ProductsResponse> {
     return this.http.get<ProductsResponse>(
-      `${this.baseUrl}/products/category/${category}&order=${order}`
+      `${this.baseUrl}/products/category/${category}?order=${order}`
     );
   }
 

@@ -20,11 +20,17 @@ export class AuthComponent {
           this.router.navigate(['/products']); // Redirect to products page after login
         } else {
           this.errorMessage = 'Invalid username or password';
+          this.alertMessage(this.errorMessage);
         }
       },
       (error) => {
         this.errorMessage = 'Login failed. Please try again.';
+        this.alertMessage(this.errorMessage);
       }
     );
+  }
+
+  alertMessage(message: string) {
+    alert(message);
   }
 }
