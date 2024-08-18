@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Products</h5>
+    <ul class="list-group list-group-flush">
+      <li
+        class="list-group-item"
+        style="width: max-content"
+        *ngFor="let category of categories | keyvalue"
+      >
+        <label class="form-check-label d-flex align-items-center fs-6">
+          <input
+            type="radio"
+            class="form-check-input"
+            name="productCategory"
+            [value]="category.key"
+            [(ngModel)]="selectedCategory"
+            (change)="onCategoryChange(category.key)"
+          />
+          {{ category.key }} ({{ category.value }})
+        </label>
+      </li>
+    </ul>
+  </div>
+</div>

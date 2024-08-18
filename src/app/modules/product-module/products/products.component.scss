@@ -1,0 +1,17 @@
+.form-select {
+  --bs-form-select-bg-img: unset !important;
+}
+:host ::ng-deep {
+  .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+  .page-item .page-link {
+    color: black;
+  }
+  .page-item .page-link:focus {
+    // outline: unset;
+    box-shadow: var(--primary-color);
+  }
+}

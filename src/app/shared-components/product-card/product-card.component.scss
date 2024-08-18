@@ -1,0 +1,57 @@
+.card {
+  position: relative;
+  border-radius: 10px;
+}
+
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.star-rating {
+  color: #F4B000;
+}
+
+.add-to-cart-btn {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  width: 80%;
+}
+.add-to-cart-btn:hover {
+  background-color: #41cccc71;
+}
+
+.card-text,
+.card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  max-height: 4.5em;
+}
+.card-text {
+  -webkit-line-clamp: 3;
+}
+.card-title {
+  -webkit-line-clamp: 1;
+}

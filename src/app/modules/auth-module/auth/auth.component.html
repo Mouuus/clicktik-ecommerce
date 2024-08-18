@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center align-items-center form">
+  <div class="card w-50 max-w-400 p-4 border border-0">
+    <div class="card-body">
+      <h2 class="text-center mb-4">Log in to your account</h2>
+      <p class="text-center text-muted mb-5">
+        Welcome back! Please enter your details.
+      </p>
+      <form (ngSubmit)="login()"> <!-- Use (ngSubmit) instead of (submit) for Angular -->
+        <div class="row row-cols-1 g-3">
+          <div class="col">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Enter your username"
+                [(ngModel)]="username"
+                name="username"
+                required
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                [(ngModel)]="password" 
+                name="password"
+                required
+              />
+            </div>
+          </div>
+          <div class="col">
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+            >
+              Sign in
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

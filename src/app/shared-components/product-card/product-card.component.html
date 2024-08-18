@@ -1,0 +1,57 @@
+<div class="card">
+  <!-- Discount Badge -->
+  <div *ngIf="product.discountPercentage" class="discount-badge fw-bold">
+    -{{ product.discountPercentage }}%
+  </div>
+
+  <!-- Product Image -->
+  <img [src]="product.thumbnail" class="card-img-top" [alt]="product.title" />
+
+  <div class="card-body">
+    <!-- Product Title -->
+    <h5 class="card-title">{{ product.title }}</h5>
+
+    <!-- Product Description -->
+    <p class="card-text">{{ product.description }}</p>
+
+    <!-- Product Price -->
+    <p class="price">
+      <span *ngIf="product.discountPercentage" class="old-price">
+        <b>{{ product.price | number : "1.2-2" }}</b> USD
+      </span>
+      <b class="ms-2">{{
+        product.price! * (1 - product.discountPercentage! / 100)
+          | number : "1.2-2"
+      }}</b>
+      USD
+    </p>
+
+    <!-- Product Brand -->
+    <p>
+      Brand: <b>{{ product.brand }}</b>
+    </p>
+
+    <!-- Product Category -->
+    <p>
+      Category: <b>{{ product.category }}</b>
+    </p>
+
+    <!-- Product Stock -->
+    <p>
+      In stock: <b>{{ product.stock }}</b>
+    </p>
+
+    <!-- Product Rating -->
+    <div class="d-flex align-items-center">
+      <span class="star-rating ms-auto">
+        <b>★ {{ product.rating }}</b></span
+      >
+      <span class="ms-2 text-muted">({{ product.reviews?.length! }})</span>
+    </div>
+  </div>
+
+  <!-- Add to Cart Button -->
+  <button class="add-to-cart-btn m-auto rounded mb-3" 
+  (click)="addToCart()"
+  >ADD TO CART</button>
+</div>

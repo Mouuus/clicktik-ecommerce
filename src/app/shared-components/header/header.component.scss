@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 5em;
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+
+
+
+nav a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 300;
+}
+
+.login a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 300;
+}
+
+.login a:hover,
+nav a:hover {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.icon-left {
+  left: 10px; /* Adjust the distance from the left as needed */
+  top: 50%;
+  transform: translateY(-50%);
+}
+.rounded-pill{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
