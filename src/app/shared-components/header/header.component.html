@@ -7,7 +7,7 @@
   </div>
 
   <div class="right-side d-flex align-items-center gap-3">
-    <div class="search">
+    <div class="search" *ngIf="authenticatedUser">
       <div class="position-relative">
         <i class="bi bi-search position-absolute icon-left text-secondary"></i>
         <input
@@ -21,7 +21,7 @@
         />
       </div>
     </div>
-    <div class="position-relative">
+    <div class="position-relative" *ngIf="authenticatedUser">
       <i class="bi bi-cart-fill position-relative text-secondary fs-4"></i>
       <span
         class="position-absolute top-75 start-100 translate-middle badge rounded-pill"
@@ -32,8 +32,12 @@
     </div>
 
     <div class="login">
-      <a href="#">Account</a>
-      <a href="#">Log in</a>
+      <a
+      *ngIf="authenticatedUser"
+      (click)="logout()">Account</a>
+      <a
+      *ngIf="!authenticatedUser"
+      routerLink="auth/login">Log in</a>
     </div>
   </div>
 </header>

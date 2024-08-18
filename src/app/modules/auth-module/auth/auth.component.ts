@@ -16,7 +16,6 @@ export class AuthComponent {
   login(): void {
     this.authService.login(this.username, this.password).subscribe(
       (response) => {
-        console.log(response)
         if (response.token) {
           this.router.navigate(['/products']); // Redirect to products page after login
         } else {

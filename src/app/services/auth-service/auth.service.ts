@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
@@ -11,7 +11,12 @@ export class AuthService {
   private isLoggedIn = false;
   private authToken: string | null = null;
   private APIURL=`${environment.apiUrl}/auth`;
-  constructor(private http: HttpClient) {}
+  private loggedInSubject = new BehaviorSubject<boolean>(false);
+  public loggedIn$: Observable<boolean> = this.loggedInSubject.asObservable();
+
+  constructor(private http: HttpClient) {
+    this.checkLoginStatus();
+  }
 
   login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -36,12 +41,18 @@ export class AuthService {
   }
 
   logout(): void {
-    this.isLoggedIn = false;
-    this.authToken = null;
     localStorage.removeItem('authToken');
+    this.loggedInSubject.next(false);
+  }
+
+  private checkLoginStatus(): void {
+    const token = localStorage.getItem('authToken');
+    this.loggedInSubject.next(!!token);
   }
 
   isAuthenticated(): boolean {
     return this.isLoggedIn || !!localStorage.getItem('authToken');
   }
+
+  
 }
